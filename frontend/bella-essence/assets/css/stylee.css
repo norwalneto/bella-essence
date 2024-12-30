@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #333;
+    --secondary-color: #f4f4f4;
+    --highlight-color: #555;
+    --font-color-light: #fff;
+    --font-color-dark: #333;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-hover-color: rgba(0, 0, 0, 0.2);
+    --border-radius: 8px;
+    --font-size-base: 16px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: var(--font-size-base);
+    color: var(--font-color-dark);
+    background-color: var(--secondary-color);
+}
+
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    color: var(--font-color-light);
+    padding: 1rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.scrolled {
+    background-color: var(--secondary-color);
+    color: var(--font-color-dark);
+    box-shadow: 0 4px 6px var(--shadow-hover-color);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Distribui logo e ícones nas extremidades */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    justify-content: center; /* Centraliza a logo */
+    align-items: center;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+}
+
+/* Navegação */
+nav {
+    flex-grow: 1; /* Faz o nav crescer e ocupar o espaço disponível */
+    display: flex;
+    justify-content: center; /* Centraliza os links de navegação */
+    align-items: center;
+    gap: 2rem; /* Espaço entre os links de navegação */
+}
+
+/* Lista de links de navegação */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center; /* Centraliza os links de navegação */
+    margin: 0;
+}
+
+/* Links de navegação */
+nav a {
+    text-decoration: none;
+    color: var(--font-color-light);
+    font-size: 1.2rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--font-color-light);
+}
+
+nav a.active {
+    font-weight: bold;
+    border-bottom: 2px solid var(--font-color-light);
+}
+
+/* Ícones */
+.cart-icon {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-left: 1rem; /* Mesmo espaçamento da logo */
+}
+
+/* Menu de ícone (hamburguer) */
+.menu-icon {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: none; /* Ocultar inicialmente */
+}
+
+/* Adicionar um container para os ícones alinhados à direita */
+.header-icons {
+    display: flex;
+    justify-content: flex-end; /* Alinha os ícones à direita */
+    gap: 1rem;
+    margin-left: 1rem; /* Mesma distância que a logo */
+}
+
+/* Seções */
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--secondary-color);
+}
+
+/* Lista de produtos */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Cartões de produto */
+.card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    border-radius: var(--border-radius);
+    max-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--shadow-hover-color);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card h1 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.card .price {
+    color: grey;
+    font-size: 1.2rem;
+}
+
+.card p {
+    padding: 0 1rem;
+    font-size: 1rem;
+    color: var(--font-color-dark);
+}
+
+.card button {
+    background-color: var(--primary-color);
+    color: var(--font-color-light);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: var(--highlight-color);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--font-color-light);
+}
+
+/* Estilo para o Modal */
+.modal {
+    display: none; /* Oculta o modal inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+}
+
+/* Conteúdo do Modal */
+.modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+}
+
+/* Botão de Fechar */
+.close-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Modal ativo - visível */
+.modal.active {
+    display: flex;
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Menu hamburguer */
+    .menu-icon {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        display: none; /* Esconde o menu por padrão */
+        width: 100%;
+        background-color: var(--primary-color);
+        position: absolute;
+        top: 60px; /* Ajusta a posição para abaixo do cabeçalho */
+        left: 0;
+        padding: 1rem 0;
+        z-index: 10;
+    }
+
+    nav ul.active {
+        display: flex; /* Exibe o menu quando a classe 'active' for adicionada */
+    }
+
+    /* Alinha o carrinho à direita */
+    .cart-icon {
+        margin-left: auto;
+    }
+
+    .product-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+}

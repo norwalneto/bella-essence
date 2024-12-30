@@ -1,0 +1,464 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Estilos globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    /* Tons Claros e Neutros */
+    --Branco-Floral: #fffffb; /* Branco muito claro com leve tom amarelado */
+    --Branco-Isolado: #fefff9; /* Branco com toque de verde ou amarelo suave */
+    --Cinza-Gelo: #f8f7f2; /* Cinza muito claro com um toque quente */
+    --Branco-Creme: #fefdf8; /* Branco com tom creme */
+    --Branco-Esfumacado: #fcfcf4; /* Branco com tonalidade sutil de cinza */
+    --Branco-Lavanda: #ecddff;      /* Branco com uma leve mistura de lilás */
+
+    /* Tons Dourados */
+    --Dourado-Medio: #9a7544; /* Dourado quente e médio */
+    --Dourado-Amadeirado: #9f7847; /* Dourado com toque marrom */
+    --Dourado-Suave: #98764d; /* Dourado suave com tonalidade quente */
+    --Dourado-Suave-dois: #987a55;
+
+    /* Tons Escuros */
+    --Preto-Fosco: #2e2e2e; /* Preto com leve toque de cinza, sofisticado e elegante */
+    --Preto-Carvao: #333333; /* Preto com bastante cinza, ideal para elementos secundários */
+}
+
+body {
+    font-size: 16px;
+    color: var(--Preto-Carvao);
+    background-color: var(--Branco-Lavanda);
+}
+
+/* Header */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    color: var(--Preto-Carvao);
+    padding: 1rem;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.scrolled {
+    background-color: var(--Branco-Floral);
+    color: var(--Preto-Carvao);
+    box-shadow: 0 4px 6px var(--Preto-Carvao);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    justify-content: center; /* Centraliza a logo */
+    align-items: center;
+}
+
+.logo img {
+    width: 60px;
+    height: auto;
+    border-radius: 50%;
+    z-index: 1; /* Mantém a logo atrás do sidebar */
+}
+
+/* Navegação */
+nav {
+    flex-grow: 1; /* Faz o nav crescer e ocupar o espaço disponível */
+    display: flex;
+    justify-content: center; /* Centraliza os links de navegação */
+    align-items: center;
+    gap: 2rem; /* Espaço entre os links de navegação */
+}
+
+/* Lista de links de navegação */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center; /* Centraliza os links de navegação */
+    margin: 0;
+}
+
+/* Links de navegação */
+nav a {
+    text-decoration: none;
+    color: var(--font-color-light);
+    font-size: 1.2rem;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--secondary-color);
+    border-bottom: 2px solid var(--font-color-light);
+}
+
+nav a.active {
+    font-weight: bold;
+    border-bottom: 2px solid var(--font-color-light);
+}
+
+/* Ícones */
+.header-icons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.cart-icon {
+    font-size: 30px;
+    color: var(--Preto-Carvao);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.menu-icon {
+    font-size: 30px;
+    color: var(--Preto-Carvao);
+    cursor: pointer;
+    align-items: center;
+    display: none; /* Ocultar inicialmente */
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--Branco-Lavanda);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--font-color-light);
+}
+/* Lista de produtos */
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+/* Cartões de produto */
+.card {
+    background-color: #fff;
+    box-shadow: 0 4px 8px var(--shadow-color);
+    border-radius: var(--border-radius);
+    max-width: 250px;
+    flex: 1 1 200px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--shadow-hover-color);
+}
+
+.card img {
+    width: 90%;
+    margin-top: 10px;
+    height: auto;
+}
+
+.card h1 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.card .price {
+    color: grey;
+    font-size: 1.2rem;
+}
+
+.card p {
+    padding: 0 1rem;
+    font-size: 1rem;
+    color: var(--font-color-dark);
+}
+
+.card button {
+    background-color: var(--Dourado-Suave);
+    color: var(--Branco-Creme);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+    background-color: var(--highlight-color);
+}
+
+/* Sidebar - estrutura e estilo */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease;
+    z-index: 999; /* Acima da logo e do overlay */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.sidebar-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.sidebar h3 {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: var(--Preto-Carvao);
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    padding: 15px;
+    border-bottom: 1px solid var(--Branco-Lavanda);
+}
+
+.sidebar-menu li a {
+    color: var(--Preto-Carvao);
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar-menu li a:hover {
+    background-color: var(--Branco-Lavanda);
+}
+
+/* Exibe a sidebar quando o botão for clicado */
+.sidebar.active {
+    left: 0;
+}
+
+/* Overlay para fundo preto */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 998; /* Atrás do sidebar */
+    display: none; /* Inicialmente escondido */
+}
+
+
+/* Estilo do Modal */
+.modal {
+    display: none; /* Inicialmente escondido */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Estilo do Botão de Finalizar Compra */
+#checkoutBtn {
+    padding: 10px 20px;
+    background-color: var(--Dourado-Suave);
+    color: var(--Branco-Creme);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#checkoutBtn:hover {
+    background-color: var(--Dourado-Suave-dois);
+}
+
+/* Estilos para telas grandes (a partir de 769px) */
+@media screen and (min-width: 769px) {
+    nav ul {
+        display: flex; /* Menu sempre visível em telas grandes */
+        gap: 2rem;
+        justify-content: center;
+    }
+
+    header .menu-icon {
+        display: none; /* Esconde o ícone de menu em telas grandes */
+    }
+}
+
+/* Responsividade para telas pequenas */
+@media screen and (max-width: 768px) {
+    .header-content {
+        flex-direction: row; /* Organiza os itens em linha */
+        justify-content: space-between; /* Distribui os itens para as extremidades */
+        align-items: center;
+    }
+
+    .logo {
+        position: relative; /* Centraliza a logo */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .logo img {
+        width: 50px; /* Ajusta o tamanho da logo */
+    }
+
+    nav ul {
+        display: none; /* Esconde o menu de navegação em telas menores */
+    }
+
+    .menu-icon {
+        display: block; /* Mostra o ícone do menu */
+        font-size: 30px;
+        cursor: pointer;
+        margin-left: 1rem;
+    }
+
+    .header-icons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 1rem; /* Espaçamento entre os ícones */
+        width: auto;
+    }
+
+    .cart-icon {
+        font-size: 24px;
+    }
+
+    .menu-icon {
+        margin-left: auto; /* Garante que o ícone do menu fique à direita */
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px; /* Esconde a sidebar inicialmente */
+        width: 250px;
+        height: 100%;
+        background-color: #fff;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        transition: left 0.3s ease;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .sidebar.active {
+        left: 0; /* Exibe a sidebar quando ativa */
+    }
+
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .sidebar-header img {
+        width: 50px;
+        border-radius: 50%; /* Deixa a imagem circular */
+    }
+
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sidebar-menu li {
+        margin-bottom: 1rem;
+    }
+
+    .sidebar-menu a {
+        text-decoration: none;
+        color: #333;
+        font-size: 1rem;
+    }
+
+    .sidebar-menu a:hover {
+        color: #007bff;
+    }
+}
+
+/* Responsividade para telas muito pequenas */
+@media screen and (max-width: 480px) {
+    .logo img {
+        width: 40px; /* Reduz ainda mais o tamanho da logo */
+    }
+
+    .menu-icon {
+        font-size: 28px; /* Ajusta o tamanho do ícone do menu */
+    }
+
+    .cart-icon {
+        font-size: 22px; /* Ajusta o tamanho do ícone do carrinho */
+    }
+}
